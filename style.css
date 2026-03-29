@@ -72,11 +72,23 @@ header nav {
     font-size: 0.9rem;
     font-weight: bold;
     transition: all 0.3s ease;
+    text-align: center;
 }
 
 .nav-cta:hover {
     background: var(--primary);
     box-shadow: 0 0 15px var(--primary-glow);
+}
+
+.btn-vip {
+    border-color: #e50914; 
+    color: #fff; 
+    background: rgba(229,9,20,0.1);
+}
+
+.nav-links {
+    display: flex;
+    gap: 10px;
 }
 
 /* Hero Section (Block 1) */
@@ -355,9 +367,10 @@ header nav {
 /* Responsive */
 @media (max-width: 1024px) {
     .hero {
-        flex-direction: column;
+        flex-direction: column-reverse; /* Revertir para que la imagen no opaque el texto al subir */
         text-align: center;
         padding-top: 140px;
+        gap: 2rem;
     }
     
     .giant-title { font-size: 3rem; }
@@ -365,10 +378,56 @@ header nav {
 }
 
 @media (max-width: 600px) {
+    header { padding: 1rem 0; }
+    
+    header nav {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .nav-cta {
+        width: 100%;
+    }
+    
     .giant-title { font-size: 2.2rem; }
     .hero-subtitle { font-size: 1.1rem; }
-    .section-title { font-size: 2rem; }
-    .math-card { padding: 2rem; }
+    .hero-box { padding: 1rem; }
+    
+    .section-title { font-size: 1.8rem; }
+    .math-card { padding: 2rem 1.5rem; }
+    .math-entry { font-size: 1.5rem; }
+    .math-item { font-size: 1.2rem; }
+
+    /* VIP Library Mobile */
+    .catalogo-vip {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 15px;
+        padding: 20px;
+    }
+
+    .poster-libro {
+        aspect-ratio: 2/3.5;
+    }
+
+    .poster-overlay {
+        opacity: 1; /* Always show titles on mobile as there's no hover */
+        background: linear-gradient(to top, rgba(0,0,0,0.95), rgba(0,0,0,0.5) 50%, transparent);
+        padding: 10px;
+    }
+
+    .poster-titulo {
+        font-size: 13px;
+    }
+
+    .btn-leer {
+        padding: 5px 10px;
+        font-size: 11px;
+    }
 }
 
 /* Animations */
